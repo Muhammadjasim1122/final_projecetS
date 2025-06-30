@@ -1,0 +1,32 @@
+.SoundTestCon{
+
+    /* Background properties */
+    background-image: url("/assets/img/bg13.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps bg fixed during scrolling */
+    
+    /* Layout properties */
+    width: 100%;
+    min-height: 100vh; /* Use only one min-height definition */
+    padding: 20px;
+   
+    /* Flex properties */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    /* Text properties */
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    
+    /* Reset properties */
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: auto; /* Better than 'visible' for containing children */
+    
+}

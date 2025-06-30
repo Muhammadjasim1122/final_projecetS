@@ -1,0 +1,99 @@
+import { Link } from "react-router-dom";
+import "../styles/Articulation.css";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import SoundData from '../data/SoundData';
+
+const colors = [
+  "#B0E0E6", "#87CEFA", "#A2DFF7",
+  "#FFB6C1", "#FFD1DC", "#FAD0C9",
+  "#E6E6FA", "#E0B0FF", "#D8B4E2",
+  "#FFF9B1", "#FFFFE0", "#FFF3B0"
+];
+
+// We'll get sounds directly from SoundData
+
+const AgeSoundExercises = () => {
+  const { i18n } = useTranslation();
+  const [soundsToShow, setSoundsToShow] = useState([]);
+  const [selectionMethod, setSelectionMethod] = useState('auto');
+  const direction = i18n.language === "ur" ? "rtl" : "ltr";
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const method = queryParams.get('method') || 'auto';
+    setSelectionMethod(method);
+
+    if (method === 'manual') {
+      const soundParam = queryParams.get('sounds');
+      if (soundParam) {
+        setSoundsToShow(soundParam.split(','));
+      }
+    } else {
+      const age = parseInt(queryParams.get('age')) || parseInt(localStorage.getItem("childAge")) || 3;
+      
+      // Get all sounds from SoundData
+      const allSounds = Object.keys(SoundData);
+      
+      setSoundsToShow(allSounds);
+    }
+  }, [i18n.language]);
+
+  return (
+    <main className="container-q" role="main" dir={direction}>
+      <h2 className="text-center mb-3">
+        {i18n.language === "ur" ? "🎯 آوازوں کی مشق" : "🎯 Articulation Exercises"}
+      </h2>
+
+      {selectionMethod === 'manual' && (
+        <div className={`selected-sounds-header ${direction === "rtl" ? "text-right" : "text-left"}`}>
+          <div>
+            {i18n.language === "ur"
+              ? "منتخب کردہ آوازیں:"
+              : "SELECTED SOUNDS:"}
+          </div>
+        </div>
+      )}
+
+      <div className="row sounds-container">
+        {soundsToShow.map((sound, i) => (
+          <div key={i} className="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+            <div
+              className="card sound-card text-center shadow-sm"
+              style={{
+                backgroundColor: colors[i % colors.length],
+                borderRadius: "15px",
+                border: "none",
+                transition: "transform 0.2s",
+                minHeight: "140px"
+              }}
+            >
+              <div className="card-body d-flex flex-column justify-content-center">
+                <h5 className="sound-title mb-3" style={{ fontSize: "1.5rem" }}>
+                  🔤 {sound}
+                </h5>
+                <Link
+                  to={`/ArticulationGame/${sound.toLowerCase()}`}
+                  className="btn btn-sm btn-primary practice-btn"
+                  style={{
+                    backgroundColor: "#4a6baf",
+                    border: "none",
+                    borderRadius: "20px",
+                    padding: "6px 12px",
+                    fontSize: "0.9rem",
+                    width: "80%",
+                    margin: "0 auto"
+                  }}
+                >
+                  {i18n.language === "ur" ? "مشق کریں" : "Practice"}
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+};
+
+export default AgeSoundExercises;
