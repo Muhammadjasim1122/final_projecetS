@@ -16,7 +16,8 @@ import TurtleTalkPage from "../pages/TurtleTalkPage";
 import BreathingPracticePage from "../pages/BreathingPracticePage";
 import PauseAndPlanPage from "../pages/PauseAndPlanPage"; 
 import MirrorSpeakingPage from "../pages/MirrorSpeakingPage";
-import TestSound from "../pages/TestSound"
+import TestSound from "../pages/TestSound";
+import ProgressPage from "../pages/ProgressTracker";
 function AppRoutes() {
   return (
     <Routes>
@@ -42,6 +43,7 @@ function AppRoutes() {
       <Route path="/breathing-practice" element={<BreathingPracticePage />} />
       <Route path="/pause-and-plan" element={<PauseAndPlanPage />} /> 
       <Route path="/mirror-speaking" element={<MirrorSpeakingPage/>}/>
+<Route path="/progress" element={<ProgressPage />} />
     </Routes>
   );
 }

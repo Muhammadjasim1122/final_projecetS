@@ -243,8 +243,19 @@
     "speak": "Speak",
     "notRecommended": "Not recommended for home practice",
    "listening":"listening"
+  },
+  
+ "progress": {
+    "title": "Progress Overview",
+    "soundTest": "Sound Test",
+    "practice": "Practice",
+    "mastery": "Mastery",
+    "totalSounds": "Total Sounds",
+    "mastered": "Mastered",
+    "practicing": "Practicing",
+    "needsWork": "Needs Work",
+    "lastPracticed": "Last practiced"
   }
-
 
 
 

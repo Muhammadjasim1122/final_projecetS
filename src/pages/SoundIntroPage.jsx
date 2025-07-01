@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import '../styles/SoundIntroPage.css';
 import { useTranslation } from "react-i18next"; 
 import animationData1 from "../assets/Animation-withoutTxt.json";  
-import SoundData from "../data/soundData";
+import SoundData from "../data/SoundData";
 import UrduSoundData from "../data/UrduSoundData";
 const SoundIntroPage = () => {
   const { soundId } = useParams(); 

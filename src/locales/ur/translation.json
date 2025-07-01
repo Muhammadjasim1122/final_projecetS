@@ -231,10 +231,18 @@
     "listen": "سنیں",
     "speak": "بولیں",
     "notRecommended": "گھریلو مشق کے لیے موزوں نہیں"
+  },
+  "progress": {
+    "title": "ترقی کا جائزہ",
+    "soundTest": "آواز کا ٹیسٹ",
+    "practice": "مشق",
+    "mastery": "مہارت",
+    "totalSounds": "کل آوازیں",
+    "mastered": "مہارت حاصل",
+    "practicing": "مشق جاری",
+    "needsWork": "مزید مشق درکار",
+    "lastPracticed": "آخری مشق"
   }
-
-
-
 
 }
 
