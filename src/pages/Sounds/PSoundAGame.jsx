@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "../../styles/ArticulationGame.css";
 import { speakText } from "../../utils/tts";
-import articulationExercises from "../../data/soundData";
+import articulationExercises from "../../data/SoundData";
 import articulationExercisesUrdu from "../../data/UrduSoundData";
 import CompletionOverlay from "../../components/ArticulationComponents/CompletionOverlay";
 import LevelCompleteOverlay from "../../components/ArticulationComponents/LevelCompleteOverlay";
